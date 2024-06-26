@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Study Sloth DB</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Thanos Tsagris">
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="study_sloth_container">
+            <div class="study_sloth_header">
+                <h1 class="text">Study Sloth Library</h1>
+                
+            </div>
+
+            <div class="study_sloth_actions">
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" id="study_sloth_search" required/>
+                        <div class="underline"></div>
+                        <label for="">Search a song</label>
+                    </div>
+                    <button style="--clr:#39FF14" onClick="renderSlothRequest('search')" id="study_sloth_search_btn"><span>Search</span><i></i></button>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" id="study_sloth_add" required/>
+                        <div class="underline"></div>
+                        <label for="">Add a song</label>
+                    </div>
+
+                    <button style="--clr:#0FF0FC" onClick="renderSlothRequest('add')" id="study_sloth_add_btn"><span>Add</span><i></i></button>
+                </div>
+
+                <span id="study_sloth_loader" class="text" style="display: none;">Please wait....</span>
+                <div id="action_msg" ></div>
+            </div>
+        </div>
+
+        <script src="studySlothStore.js"></script>
+    </body>
+</html>
