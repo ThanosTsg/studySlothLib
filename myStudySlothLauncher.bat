@@ -7,7 +7,7 @@ REM Get the directory path of the batch script (where this batch file is located
 set "batch_dir=%~dp0"
 
 REM Define paths and URLs
-set "php_zip=%batch_dir%\etc\packages\php-8.0.30-Win32-vs16-x64.zip"
+set "php_zip=%batch_dir%\etc\packages\php-8.0.30-Win32-vs16-x86.zip"
 set "php_dir=%batch_dir%\etc\packages\php"
 set "php_exe=%php_dir%\php.exe"
 set "project_dir=%batch_dir%"
