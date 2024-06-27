@@ -54,7 +54,7 @@ async function renderSlothRequest(action) {
             default:
                 break;
         }
-        msg.innerHTML = await sendASlothRequest(params);
+        await sendASlothRequest(params).then((res)=>{console.log(res); return msg.innerHTML = res;}).catch((err)=>{});
     } finally {
         loader.style.display = 'none';
     }
