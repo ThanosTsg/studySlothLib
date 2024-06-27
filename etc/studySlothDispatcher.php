@@ -28,7 +28,21 @@ function searchEntries($key)
     return false;
 }
 
-if (isset($_POST["searchkey"])) {
+function checkIfEmpty($term)
+{
+    global $output_class;
+    global $result;
+
+    if(!empty(trim($term))){
+        return false;
+    }
+
+    $output_class = "bad";
+    $result = "Write something!";
+    return true;
+}
+
+if (isset($_POST["searchkey"]) && !checkIfEmpty($_POST["searchkey"])) {
     if (searchEntries($_POST["searchkey"])) {
         $output_class = "bad";
         $result = "Song Name Found.";
@@ -38,7 +52,7 @@ if (isset($_POST["searchkey"])) {
     }
 }
 
-if (isset($_POST["addentry"])) {
+if (isset($_POST["addentry"]) && !checkIfEmpty($_POST["addentry"])) {
     if (!searchEntries($_POST["addentry"])) {
         $slothData["studySlothSongsData"][] = [
             "name" => trim($_POST["addentry"]),
