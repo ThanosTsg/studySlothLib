@@ -7,7 +7,7 @@ REM Get the directory path of the batch script (where this batch file is located
 set "batch_dir=%~dp0"
 
 REM Define paths and URLs
-set "php_zip=%batch_dir%\etc\packages\php-8.0.30-Win32-vs16-x86.zip"
+set "php_zip=%batch_dir%\etc\packages\php-7.4.33-nts-Win32-vc15-x64.zip"
 set "php_dir=%batch_dir%\etc\packages\php"
 set "php_exe=%php_dir%\php.exe"
 set "project_dir=%batch_dir%"
@@ -39,7 +39,7 @@ if exist "%php_exe%" (
 
 REM Start PHP built-in server
 cd /d "%project_dir%"
-start "" "%php_exe%" -S 0.0.0.0:8000
+start /B "" "%php_exe%" -S 0.0.0.0:8000 &
 
 REM Open web browser
 start "" "%server_url%"
