@@ -164,7 +164,7 @@
      left: 80%;
      top: -2px;
      border: 2px solid var(--clr);
-     background: #272822;
+     background: var(--clr);
      transition: 0.2s;
 }
  button:hover i::before {
@@ -180,7 +180,7 @@
      left: 20%;
      bottom: -2px;
      border: 2px solid var(--clr);
-     background: #272822;
+     background: var(--clr);
      transition: 0.2s;
 }
  button:hover i::after {
