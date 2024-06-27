@@ -42,7 +42,8 @@ function sendASlothRequest(params) {
 }
 
 async function renderSlothRequest(action) {
-    loader.style.display = 'block'
+    loader.style.display = 'block';
+    msg.style.display = 'none';
     try {
         let params = '';
         switch (action) {
@@ -57,6 +58,7 @@ async function renderSlothRequest(action) {
         await sendASlothRequest(params).then((res)=>{console.log(res); return msg.innerHTML = res;}).catch((err)=>{});
     } finally {
         loader.style.display = 'none';
+        msg.style.display = 'block';
     }
 
 }
