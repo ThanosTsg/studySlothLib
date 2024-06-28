@@ -19,6 +19,7 @@ function sendASlothRequest(params) {
 
         httpc.open("POST", url, true);
         httpc.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //httpc.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         httpc.onload = function() {
             if (httpc.readyState == 4 && httpc.status == 200) {
                 resolve(httpc.responseText);
@@ -55,7 +56,15 @@ async function renderSlothRequest(action) {
             default:
                 break;
         }
-        await sendASlothRequest(params).then((res)=>{console.log(res); return msg.innerHTML = res;}).catch((err)=>{});
+        await sendASlothRequest(params)
+        .then((res)=>{
+            console.log(JSON.parse(res).slothResp.msg); 
+            const jsonObj = JSON.parse(res);
+            return msg.innerHTML = '<span class="text msg_'+jsonObj.slothResp.class+'">'+jsonObj.slothResp.msg+'</span><span class="emoji_msg_'+jsonObj.slothResp.class+ '"></span>';
+        })
+        .catch((err)=>{});
+
+
     } finally {
         loader.style.display = 'none';
         msg.style.display = 'block';
