@@ -32,7 +32,7 @@ function checkIfEmpty($term)
     if(!empty(trim($term))){
         return false;
     }
-    parseResponse("bad", "Write something!");
+    return parseResponse("bad", "Write something!");
 }
 
 function parseResponse($class = '', $msg = ''){
@@ -46,9 +46,8 @@ function parseResponse($class = '', $msg = ''){
 if (isset($_POST["searchkey"]) && !checkIfEmpty($_POST["searchkey"])) {
     if (searchEntries($_POST["searchkey"])) {
        return parseResponse("bad", "Song Name Found.");
-    } else {
-        return parseResponse("positive", "Song Name NOT Found.");
-    }
+    } 
+    return parseResponse("positive", "Song Name NOT Found.");
 }
 
 if (isset($_POST["addentry"]) && !checkIfEmpty($_POST["addentry"])) {
@@ -67,7 +66,6 @@ if (isset($_POST["addentry"]) && !checkIfEmpty($_POST["addentry"])) {
             LOCK_EX
         );
         return parseResponse("positive", "Song successfully added!");
-    } else {
-        return parseResponse("bad", "Song is already added.");
     }
+    return parseResponse("bad", "Song is already added.");
 }
