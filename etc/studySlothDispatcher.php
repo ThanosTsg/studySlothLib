@@ -33,7 +33,6 @@ function checkIfEmpty($term)
         return false;
     }
     parseResponse("bad", "Write something!");
-    return true;
 }
 
 function parseResponse($class = '', $msg = ''){
