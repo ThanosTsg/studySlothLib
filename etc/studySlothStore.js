@@ -57,7 +57,7 @@ async function renderSlothRequest(action) {
                 break;
         }
         await sendASlothRequest(params)
-        .then((res)=>{
+        .then(res =>{
             console.log(JSON.parse(res).slothResp.msg); 
             const jsonObj = JSON.parse(res);
             return msg.innerHTML = '<span class="text msg_'+jsonObj.slothResp.class+'">'+jsonObj.slothResp.msg+'</span><span class="emoji_msg_'+jsonObj.slothResp.class+ '"></span>';
